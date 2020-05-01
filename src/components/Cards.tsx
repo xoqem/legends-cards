@@ -1,3 +1,4 @@
+import './Cards.css';
 import { CardObj, CardsResponse } from '../interfaces/cards';
 import _ from 'lodash';
 import queryString from 'query-string';
@@ -38,7 +39,9 @@ const Cards: React.FC = () => {
       hasMore={hasMore}
       loader={<div key={0}>Loading ...</div>}
     >
-      {cardComponents}
+      <div className="cards">
+        {cardComponents}
+      </div>
     </InfiniteScroll>
   );
 }

@@ -1,3 +1,4 @@
+import './Card.css';
 import _ from 'lodash';
 import React from 'react';
 import { CardObj } from '../interfaces/cards';
@@ -11,7 +12,7 @@ const Card: React.FC<CardProps> = props => {
   if (!card) return null;
 
   return (
-    <div>
+    <div className="card">
       <img alt={card.name} src={card.imageUrl} />
       <div>
         Name: {card.name}
