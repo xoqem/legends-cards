@@ -15,16 +15,16 @@ const Card: React.FC<CardProps> = props => {
     <div className="card">
       <img alt={card.name} src={card.imageUrl} />
       <div>
-        Name: {card.name}
+        <b>Name:</b> {card.name}
       </div>
       <div>
-        Text: {card.text}
+        <b>Text:</b> {card.text}
       </div>
       <div>
-        Set Name: {_.get(card.set, 'name')}
+        <b>Set Name:</b> {_.get(card.set, 'name')}
       </div>
       <div>
-        Type: {card.type}
+        <b>Type:</b> {card.type}
       </div>
     </div>
   );
