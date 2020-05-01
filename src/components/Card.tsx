@@ -1,3 +1,4 @@
+import './Card.css';
 import _ from 'lodash';
 import React from 'react';
 import { CardObj } from '../interfaces/cards';
@@ -11,19 +12,19 @@ const Card: React.FC<CardProps> = props => {
   if (!card) return null;
 
   return (
-    <div>
+    <div className="card">
       <img alt={card.name} src={card.imageUrl} />
       <div>
-        Name: {card.name}
+        <b>Name:</b> {card.name}
       </div>
       <div>
-        Text: {card.text}
+        <b>Text:</b> {card.text}
       </div>
       <div>
-        Set Name: {_.get(card.set, 'name')}
+        <b>Set Name:</b> {_.get(card.set, 'name')}
       </div>
       <div>
-        Type: {card.type}
+        <b>Type:</b> {card.type}
       </div>
     </div>
   );
