@@ -1,8 +1,15 @@
 .card {
   width: 20em;
   text-align: left;
+  padding: 1em;
 }
 
-.card img {
-  width: 100%;
+.cardImageWrapper {
+  height: 20em;
+  text-align: center;
+}
+
+.cardImage {
+  height: 100%;
+  max-width: 100%;
 }

@@ -13,7 +13,9 @@ const Card: React.FC<CardProps> = props => {
 
   return (
     <div className="card">
-      <img alt={card.name} src={card.imageUrl} />
+      <div className="cardImageWrapper">
+        <img className="cardImage" alt={`${card.name} card`} src={card.imageUrl} />
+      </div>
       <div>
         <b>Name:</b> {card.name}
       </div>
