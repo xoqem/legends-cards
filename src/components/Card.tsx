@@ -13,18 +13,22 @@ const Card: React.FC<CardProps> = props => {
 
   return (
     <div className="card">
-      <img alt={card.name} src={card.imageUrl} />
-      <div>
-        <b>Name:</b> {card.name}
+      <div className="cardImageWrapper">
+        <img className="cardImage" alt={`${card.name} card`} src={card.imageUrl} />
       </div>
-      <div>
-        <b>Text:</b> {card.text}
-      </div>
-      <div>
-        <b>Set Name:</b> {_.get(card.set, 'name')}
-      </div>
-      <div>
-        <b>Type:</b> {card.type}
+      <div className="info">
+        <div>
+          <b>Name:</b> {card.name}
+        </div>
+        <div>
+          <b>Text:</b> {card.text}
+        </div>
+        <div>
+          <b>Set Name:</b> {_.get(card.set, 'name')}
+        </div>
+        <div>
+          <b>Type:</b> {card.type}
+        </div>
       </div>
     </div>
   );

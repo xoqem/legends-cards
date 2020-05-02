@@ -34,10 +34,11 @@ const Cards: React.FC = () => {
 
   return (
     <InfiniteScroll
-      pageStart={0}
-      loadMore={fetchCards}
       hasMore={hasMore}
-      loader={<div key={0}>Loading ...</div>}
+      loader={<div className="loading" key={0}>Loading...</div>}
+      loadMore={fetchCards}
+      pageStart={0}
+      threshold={1000}
     >
       <div className="cards">
         {cardComponents}
