@@ -1,4 +1,4 @@
-import './Card.css';
+import styles from './Card.module.css';
 import _ from 'lodash';
 import React from 'react';
 import { CardObj } from '../interfaces/cards';
@@ -12,9 +12,9 @@ const Card: React.FC<CardProps> = props => {
   if (!card) return null;
 
   return (
-    <div className="card">
-      <div className="cardImageWrapper">
-        <img className="cardImage" alt={`${card.name} card`} src={card.imageUrl} />
+    <div className={styles.card}>
+      <div className={styles.imageWrapper}>
+        <img className={styles.image} alt={`${card.name} card`} src={card.imageUrl} />
       </div>
       <div>
         <b>Name:</b> {card.name}

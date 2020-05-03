@@ -1,4 +1,4 @@
-import './Cards.css';
+import styles from './Cards.module.css';
 import { CardObj, CardsResponse } from '../interfaces/cards';
 import _ from 'lodash';
 import queryString from 'query-string';
@@ -35,12 +35,12 @@ const Cards: React.FC = () => {
   return (
     <InfiniteScroll
       hasMore={hasMore}
-      loader={<div className="loading" key={0}>Loading...</div>}
+      loader={<div className={styles.loading} key={0}>Loading...</div>}
       loadMore={fetchCards}
       pageStart={0}
       threshold={1000}
     >
-      <div className="cards">
+      <div className={styles.cards}>
         {cardComponents}
       </div>
     </InfiniteScroll>
