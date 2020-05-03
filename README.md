@@ -1,8 +1,24 @@
-# Legends Cards
+# Elder Scrolls Legends Card Database
+
+## Legal Disclaimer
+
+The Elder Scrolls, The Elder Scrolls: Legends, ZeniMax, Bethesda, Bethesda Softworks and related logos are registered trademarks or trademarks of ZeniMax Media Inc. This project is not produced, endorsed, supported, or affiliated with ZeniMax Media Inc.
+
+This project uses the publically availble API at [https://docs.elderscrollslegends.io/](https://docs.elderscrollslegends.io/). This project is not produced, endorsed, supported, or affiliated with the creators / owners of that API.
+
+## Description
+
+The goal of this project is to allow a user to browse a databae of cards for the Elder Scrolls Legends card game. 
 
 ## Available Scripts
 
+These instructions expect yarn to be installed on your computer and accessible via the command line. See [https://classic.yarnpkg.com/en/docs/install](https://classic.yarnpkg.com/en/docs/install) for installation instructions if you do not already have it installed.
+
 In the project directory, you can run:
+
+### `yarn install`
+
+Installs dependencies listed in package.json.
 
 ### `yarn start`
 

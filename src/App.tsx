@@ -1,11 +1,11 @@
-import './App.css';
+import styles from './App.module.css';
 import React from 'react';
 import Cards from './components/Cards';
 
 function App() {
   return (
-    <div className="App">
-      <header className="AppHeader">
+    <div>
+      <header className={styles.Header}>
         Elder Scrolls Legends - Card Database
       </header>
       <Cards />
