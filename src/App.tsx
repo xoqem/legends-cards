@@ -1,15 +1,16 @@
-import styles from './App.module.css';
 import React from 'react';
 import Cards from './components/Cards';
+import FilterProvider from './providers/FilterProvider';
+import Header from './components/Header';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div>
-      <header className={styles.Header}>
-        Elder Scrolls Legends - Card Database
-      </header>
-      <Cards />
-    </div>
+    <FilterProvider>
+      <div>
+        <Header />
+        <Cards />
+      </div>
+    </FilterProvider>
   );
 }
 
