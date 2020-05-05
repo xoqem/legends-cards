@@ -11,6 +11,10 @@
   justify-content: center;
 }
 
+.noResults {
+  padding: 1em;
+}
+
 .loading {
   display: flex;
   flex-direction: row;
@@ -19,11 +23,11 @@
 }
 
 .spinner {
-  border: 0.5em solid #eeeeee;
-  border-top: 0.5em solid #000000;
+  border: 0.3em solid #eeeeee;
+  border-top: 0.3em solid #000000;
   border-radius: 50%;
-  width: 5em;
-  height: 5em;
+  width: 4em;
+  height: 4em;
   animation: spin 0.5s linear infinite;
 }
 
@@ -33,6 +37,5 @@
 }
 
 .visibilitySensor {
-  background: red;
   height: 1px;
 }

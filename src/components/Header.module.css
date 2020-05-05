@@ -1,12 +1,21 @@
 .Header {
-  background-color: #282c34;
+  background-color: #202023;
+  color: white;
   display: flex;
   flex-direction: row;
-  font-size: 1.5em;
-  align-items: flex-start;
-  justify-content: left;
-  color: white;
+  font-size: 1em;
+  align-items: center;
   padding: 1em;
+}
+
+.title {
+  font-size: 1.1em;
+  color: #f0e3b8;
+}
+
+.subTitle {
+  font-size: 0.9em;
+  font-weight: 100;
 }
 
 .filters {

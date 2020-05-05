@@ -5,7 +5,10 @@ import { FilterContext } from '../providers/FilterProvider';
 const Header: React.FC = () => {
   return (    
     <header className={styles.Header}>
-      <div>Elder Scross: Legends - Card Database</div>
+      <div>
+        <div className={styles.title}>Elder Scross: Legends™</div>
+        <div className={styles.subTitle}>Card Database</div>
+      </div>
       <div className={styles.filters}>
         <FilterContext.Consumer>
           {({search, setSearch}) => (

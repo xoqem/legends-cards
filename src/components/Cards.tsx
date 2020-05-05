@@ -18,22 +18,50 @@ const Cards: React.FC = () => {
   const [hasMore, setHasMore] = useState<boolean>(false);
 
   const pageRef = useRef<number>(1);
+  const prevParamsRef = useRef<string | null>(null);
 
   async function fetchCards() {
-    setLoading(true);
-
     const params = queryString.stringify({
       page: pageRef.current,
       pageSize: 20,
       ...search && { name: search }
     });
+   
+    // if the query params we are sending are for the request we just already made, do nothing and return
+    if (params === prevParamsRef.current) {
+      console.log('params are the same');
+      return;
+    }
+
+    prevParamsRef.current = params;
+
+    // if fetching the first page, clear the cards array while fetching, so loading indicator is at top of page
+    if (pageRef.current === 1) {
+      console.log('clearing cards');
+      setCards([]);
+    }
+   
+    setLoading(true);
  
     try {
       const response = await fetch(`${CARDS_URL}?${params}`)
+
+      // make sure that the params that were requested are still the ones for the most recent request, if not then
+      // we know another request was made after this one, so we can ignore the results. This will avoid race
+      // conditions and other odd behavior if multiple requests are in flight at the same time.
+      if (params !== prevParamsRef.current) {
+        return;
+      }
+
       const responseObj: CardsResponse = await response.json();
       const newCards = _.get(responseObj, 'cards');
 
-      setCards(pageRef.current > 1 ? cards.concat(newCards) : newCards);
+      if (pageRef.current === 1) {
+        setCards(newCards);
+      } else {
+        // if not the first page, add the new cards to the end of the old cards
+        setCards(cards.concat(newCards));
+      }
 
       // The cards response has a next link if there are more items to fetch
       setHasMore(Boolean(_.get(responseObj, ['_links', 'next'])));
@@ -56,6 +84,9 @@ const Cards: React.FC = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.cards}>
+        {!loading && !cards.length && (
+          <div className={styles.noResults}>No results.</div>
+        )}
         {cardComponents}
       </div>
       {hasMore && !loading && (
@@ -69,7 +100,7 @@ const Cards: React.FC = () => {
             Sensor
           </div>
         </VisibilitySensor>
-      )}
+      )} 
       {(loading || hasMore) && (
         <div className={styles.loading}>
           <div className={styles.spinner} />
