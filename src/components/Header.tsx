@@ -5,18 +5,19 @@ import { FilterContext } from '../providers/FilterProvider';
 const Header: React.FC = () => {
   return (    
     <header className={styles.Header}>
-      <div>Elder Scross: Legends - Card Database</div>
+      <div>
+        <div className={styles.title}>Elder Scross: Legends™</div>
+        <div className={styles.subTitle}>Card Database</div>
+      </div>
       <div className={styles.filters}>
         <FilterContext.Consumer>
           {({search, setSearch}) => (
-            <span>
-              Search:
-              <input
-                className={styles.searchInput}
-                onChange={event => setSearch(event.target.value)}
-                value={search}
-              />
-            </span>
+            <input
+              className={styles.searchInput}
+              onChange={event => setSearch(event.target.value)}
+              placeholder="Search"
+              value={search}
+            />
           )}
         </FilterContext.Consumer>
       </div>
