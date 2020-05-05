@@ -9,14 +9,12 @@ const Header: React.FC = () => {
       <div className={styles.filters}>
         <FilterContext.Consumer>
           {({search, setSearch}) => (
-            <span>
-              Search:
-              <input
-                className={styles.searchInput}
-                onChange={event => setSearch(event.target.value)}
-                value={search}
-              />
-            </span>
+            <input
+              className={styles.searchInput}
+              onChange={event => setSearch(event.target.value)}
+              placeholder="Search"
+              value={search}
+            />
           )}
         </FilterContext.Consumer>
       </div>

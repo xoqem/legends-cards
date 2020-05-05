@@ -2,8 +2,8 @@ import styles from './Cards.module.css';
 import { CardObj, CardsResponse } from '../interfaces/cards';
 import _ from 'lodash';
 import queryString from 'query-string';
-import React, { useState, useContext, useEffect } from 'react';
-import InfiniteScroll from 'react-infinite-scroller';
+import React, { useState, useContext, useEffect, useRef } from 'react';
+import VisibilitySensor from 'react-visibility-sensor';
 import Card from './Card';
 import { FilterContext } from '../providers/FilterProvider';
 
@@ -13,46 +13,69 @@ const Cards: React.FC = () => {
   const filtersContext = useContext(FilterContext);
   const { search } = filtersContext;
 
-  // For a project of this size using state seems ok, if it becomes more complex, moving to context or a proper state
-  // management solution like Redux or Mobx may be a good idea.
+  const [loading, setLoading] = useState<boolean>(false);
   const [cards, setCards] = useState<CardObj[]>([]);
-  const [hasMore, setHasMore] = useState<boolean>(true);
+  const [hasMore, setHasMore] = useState<boolean>(false);
 
-  async function fetchCards(page: number) {
+  const pageRef = useRef<number>(1);
+
+  async function fetchCards() {
+    setLoading(true);
+
     const params = queryString.stringify({
-      page,
+      page: pageRef.current,
       pageSize: 20,
       ...search && { name: search }
     });
  
-    const response = await fetch(`${CARDS_URL}?${params}`)
-    const responseObj: CardsResponse = await response.json();
-    const newCards = _.get(responseObj, 'cards');
+    try {
+      const response = await fetch(`${CARDS_URL}?${params}`)
+      const responseObj: CardsResponse = await response.json();
+      const newCards = _.get(responseObj, 'cards');
 
-    setCards(page > 1 ? cards.concat(newCards) : newCards);
+      setCards(pageRef.current > 1 ? cards.concat(newCards) : newCards);
 
-    // The cards response has a next link if there are more items to fetch
-    setHasMore(Boolean(_.get(responseObj, ['_links', 'next'])));
+      // The cards response has a next link if there are more items to fetch
+      setHasMore(Boolean(_.get(responseObj, ['_links', 'next'])));
+    } catch (error) {
+      // TODO: show error
+      setCards([]);
+      setHasMore(false);
+    }
+
+    setLoading(false);
   }
 
   useEffect(() => {
-    fetchCards(1);
+    pageRef.current = 1;
+    fetchCards();
   }, [search]);
 
   const cardComponents = cards.map(card => <Card card={card} key={card.id} />)
 
   return (
-    <InfiniteScroll
-      hasMore={hasMore}
-      loader={<div className={styles.loading} key={0}>Loading...</div>}
-      loadMore={fetchCards}
-      pageStart={0}
-      threshold={1000}
-    >
+    <div className={styles.wrapper}>
       <div className={styles.cards}>
         {cardComponents}
       </div>
-    </InfiniteScroll>
+      {hasMore && !loading && (
+        <VisibilitySensor onChange={isVisible  => {
+          if (isVisible && !loading) {
+            pageRef.current = pageRef.current + 1;
+            fetchCards();
+          }
+        }}>
+          <div className={styles.visibilitySensor}>
+            Sensor
+          </div>
+        </VisibilitySensor>
+      )}
+      {(loading || hasMore) && (
+        <div className={styles.loading}>
+          <div className={styles.spinner} />
+        </div>
+      )}
+    </div>
   );
 }
 

@@ -1,3 +1,9 @@
+.wrapper  {
+  position: relative;
+  flex-grow: 1;
+  overflow: scroll;
+}
+
 .cards {
   display: flex;
   flex-direction: row;
@@ -6,8 +12,27 @@
 }
 
 .loading {
-  font-weight: 500;
-  font-size: 3em;
-  padding: 2em;
-  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 3em;
+}
+
+.spinner {
+  border: 0.5em solid #eeeeee;
+  border-top: 0.5em solid #000000;
+  border-radius: 50%;
+  width: 5em;
+  height: 5em;
+  animation: spin 0.5s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.visibilitySensor {
+  background: red;
+  height: 1px;
 }
