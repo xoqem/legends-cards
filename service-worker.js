@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/legends-cards/precache-manifest.f3ff2b9865be8b70587080d14fea5b91.js"
+  "/legends-cards/precache-manifest.126eeb350b6f1c8b6d74770efed5abe6.js"
 );
 
 self.addEventListener('message', (event) => {

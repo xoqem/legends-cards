@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f18cef2d316462e11f848fd479807288",
+    "revision": "389af1eefe80df2ff98b538ec4f8357e",
     "url": "/legends-cards/index.html"
   },
   {
-    "revision": "279f95c2f89611ee03fa",
-    "url": "/legends-cards/static/css/main.ebfedf89.chunk.css"
+    "revision": "ba75199e90c2a160adf2",
+    "url": "/legends-cards/static/css/main.fe5f43e2.chunk.css"
   },
   {
     "revision": "103e1c2ab0ce412a838c",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/legends-cards/static/js/2.ad4ba915.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "279f95c2f89611ee03fa",
+    "revision": "ba75199e90c2a160adf2",
     "url": "/legends-cards/static/js/main.bb6d486b.chunk.js"
   },
   {
