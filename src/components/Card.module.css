@@ -1,15 +1,49 @@
 .card {
-  width: 20em;
+  background: #202023;
+  color: white;
+  flex-grow: 0;
+  flex-shrink: 0;
   text-align: left;
-  padding: 1em;
+  border: 1px solid #f0e3b8;
+  border-radius: 0.5em;
 }
 
 .imageWrapper {
+  background: black;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
   height: 20em;
   text-align: center;
+  padding: 2em;
 }
 
 .image {
   height: 100%;
   max-width: 100%;
+}
+
+.properties {
+  border-top: 1px solid #f0e3b8;
+}
+
+.property {
+  display: flex;
+  flex-direction: row;
+}
+
+.title {
+  color: #f0e3b8;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 5em;
+  text-align: right;
+  padding: 0.5em;
+  font-weight: 500;
+}
+
+.value {
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: 0.5em;
+  font-weight: 300;
 }

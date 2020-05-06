@@ -1,5 +1,6 @@
 .Header {
   background-color: #202023;
+  border-bottom: 1px solid black;
   color: white;
   display: flex;
   flex-direction: row;
@@ -19,8 +20,7 @@
 }
 
 .filters {
-  flex: auto;
-  min-width: 0;
+  flex-grow: 1;
   padding-left: 2em;
   text-align: right;
 }

@@ -1,14 +1,15 @@
 .wrapper  {
+  background-color: #333336;
   position: relative;
   flex-grow: 1;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .cards {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-gap: 2em;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  padding: 2em;
 }
 
 .noResults {
@@ -23,8 +24,8 @@
 }
 
 .spinner {
-  border: 0.3em solid #eeeeee;
-  border-top: 0.3em solid #000000;
+  border: 0.3em solid #333336;
+  border-top: 0.3em solid white;
   border-radius: 50%;
   width: 4em;
   height: 4em;
