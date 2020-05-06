@@ -1,5 +1,6 @@
 .wrapper  {
   background-color: #333336;
+  color: white;
   position: relative;
   flex-grow: 1;
   overflow-y: scroll;
