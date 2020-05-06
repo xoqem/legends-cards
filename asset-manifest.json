@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/legends-cards/static/css/main.ebfedf89.chunk.css",
+    "main.js": "/legends-cards/static/js/main.bb6d486b.chunk.js",
+    "main.js.map": "/legends-cards/static/js/main.bb6d486b.chunk.js.map",
+    "runtime-main.js": "/legends-cards/static/js/runtime-main.8fc5b037.js",
+    "runtime-main.js.map": "/legends-cards/static/js/runtime-main.8fc5b037.js.map",
+    "static/js/2.ad4ba915.chunk.js": "/legends-cards/static/js/2.ad4ba915.chunk.js",
+    "static/js/2.ad4ba915.chunk.js.map": "/legends-cards/static/js/2.ad4ba915.chunk.js.map",
+    "index.html": "/legends-cards/index.html",
+    "precache-manifest.f3ff2b9865be8b70587080d14fea5b91.js": "/legends-cards/precache-manifest.f3ff2b9865be8b70587080d14fea5b91.js",
+    "service-worker.js": "/legends-cards/service-worker.js",
+    "static/css/main.ebfedf89.chunk.css.map": "/legends-cards/static/css/main.ebfedf89.chunk.css.map",
+    "static/js/2.ad4ba915.chunk.js.LICENSE.txt": "/legends-cards/static/js/2.ad4ba915.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8fc5b037.js",
+    "static/js/2.ad4ba915.chunk.js",
+    "static/css/main.ebfedf89.chunk.css",
+    "static/js/main.bb6d486b.chunk.js"
+  ]
+}
